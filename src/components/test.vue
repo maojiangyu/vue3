@@ -12,15 +12,28 @@
     <input type="text" @input="getInput">
     <p></p>
     <div class="card">{{ content }}</div>
+
+      <p>
+        <button @click="activeStep = 'step-a'">Step A</button>
+        <button @click="activeStep = 'step-b'">Step B</button>
+      </p>
+
+        <keep-alive>
+          <component :is="activeStep" />
+        </keep-alive>
   </template>
   
   <script>
   //import GreetingMessage from './components/GreetingMessage'
-  
+  import StepA from "./StepA.vue";
+  import StepB from "./StepB.vue";
   export default {
     //components: { GreetingMessage },
 
     props:['content'],
+    components: {
+      StepA, StepB
+    },
 
     data() {
       return {
@@ -30,7 +43,8 @@
         dataProperty: 'invalid',
         isValid: false,
         version: 3,
-        name:''
+        name:'',
+        activeStep: 'step-a'
       }
     },
 
