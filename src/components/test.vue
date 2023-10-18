@@ -21,6 +21,12 @@
         <keep-alive>
           <component :is="activeStep" />
         </keep-alive>
+    <div class="card">{{ content }}
+      <h2>
+        <slot name="cardTitle">Fallback Title</slot>
+      </h2>
+      <slot>Fallback content</slot>
+    </div>
   </template>
   
   <script>

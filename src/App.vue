@@ -30,7 +30,9 @@ function increment() {
     <h1 v-if="awesome">Vue is awesome!</h1>
     <h1 v-else>Oh no 😢</h1>
   </main>
-  <Test content="Post Card 1"></Test>
+  <Test content="Post Card 1">
+    <template v-slot="cardTitile">Named slots</template>
+  </Test>
 </template>
 
 <style scoped>
